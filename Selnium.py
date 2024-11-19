@@ -8,7 +8,23 @@ from selenium.webdriver.support.wait import WebDriverWait
 import logging
 prnt = logging.getLogger(__name__) 
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+#driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+
+from selenium.webdriver.chrome.options import Options
+
+# Set Chrome options for headless mode and disable sandboxing
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+chrome_options.add_argument("--disable-gpu")  # Disable GPU (no need in headless mode)
+chrome_options.add_argument("--no-sandbox")  # Disable sandboxing (required in CI environments)
+chrome_options.add_argument("--remote-debugging-port=9222")  # For debugging in some cases
+
+# Initialize the WebDriver with the configured options
+driver = webdriver.Chrome(
+    service=Service(ChromeDriverManager().install()),
+    options=chrome_options
+)
+
 
 driver.get("https://the-internet.herokuapp.com/broken_images")
 
