@@ -10,6 +10,7 @@ prnt = logging.getLogger(__name__)
 
 #driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 # Set Chrome options for headless mode and disable sandboxing
