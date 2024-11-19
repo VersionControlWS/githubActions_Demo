@@ -37,7 +37,7 @@ time.sleep(3)
 
 images = driver.find_elements(By.TAG_NAME,"img")
 print("\n")
-prnt("\n")
+prnt.info("\n")
 
 for img in images:
     src = img.get_attribute("src")
@@ -47,11 +47,11 @@ for img in images:
     
     if natural_width == '0' or natural_height == '0':
         print(f"Broken Image: {src}")
-        prnt(f"Broken Image: {src}")
+        prnt.info(f"Broken Image: {src}")
         
     else:
         print(f"Image OK: {src}")
-        prnt(f"Broken Image: {src}")
+        prnt.info(f"Broken Image: {src}")
 
 
 driver.quit()
