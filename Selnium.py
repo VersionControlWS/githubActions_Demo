@@ -33,7 +33,7 @@ broken_Images = driver.find_element(By.XPATH, '//*[@id="content"]/div/h3')
 
 wait = WebDriverWait(driver, timeout=2)
 wait.until(lambda d : broken_Images.is_displayed())
-time.sleep(3)
+time.sleep(0.5)
 
 images = driver.find_elements(By.TAG_NAME,"img")
 print("\n")
